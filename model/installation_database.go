@@ -27,6 +27,9 @@ const (
 	// InstallationDatabaseMultiTenantRDSPostgres is a PostgreSQL multitenant
 	// database hosted via Amazon RDS.
 	InstallationDatabaseMultiTenantRDSPostgres = "aws-multitenant-rds-postgres"
+	// InstallationDatabaseMultiTenantRDSPooled is a PostgreSQL multitenant
+	// database hosted via Amazon RDS that has pooled connections.
+	InstallationDatabaseMultiTenantRDSPooled = "aws-multitenant-rds-postgres-pooled"
 
 	// DatabaseEngineTypeMySQL is a MySQL database.
 	DatabaseEngineTypeMySQL = "mysql"
@@ -143,6 +146,7 @@ func IsSupportedDatabase(database string) bool {
 	case InstallationDatabaseSingleTenantRDSPostgres:
 	case InstallationDatabaseMultiTenantRDSMySQL:
 	case InstallationDatabaseMultiTenantRDSPostgres:
+	case InstallationDatabaseMultiTenantRDSPooled:
 	case InstallationDatabaseMysqlOperator:
 	default:
 		return false
