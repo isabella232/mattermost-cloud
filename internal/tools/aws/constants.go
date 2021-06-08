@@ -270,6 +270,12 @@ const (
 	// changing this value will break the connection to AWS resources for existing installations.
 	DefaultRDSMultitenantDatabaseTypeTagValue = "multitenant-rds"
 
+	// DefaultRDSMultitenantDatabaseTypeTagValue key used to identify a
+	// multitenant database cluster of type multitenant-rds.
+	// Warning:
+	// changing this value will break the connection to AWS resources for existing installations.
+	DefaultRDSMultitenantDatabasePGBouncerTypeTagValue = "multitenant-rds-pgbouncer"
+
 	// RDSMultitenantPurposeTagKey is the key used to identify the purpose
 	// of an RDS cluster.
 	// Warning:
