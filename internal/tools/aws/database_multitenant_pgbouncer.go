@@ -91,3 +91,29 @@ func (d *RDSMultitenantPGBouncerDatabase) GenerateDatabaseSecret(store model.Ins
 func (d *RDSMultitenantPGBouncerDatabase) Teardown(store model.InstallationDatabaseStoreInterface, keepData bool, logger log.FieldLogger) error {
 	return errors.New("NOT DONE")
 }
+
+const baseIni = `
+[pgbouncer]
+listen_addr = *
+listen_port = 5432
+auth_file = /etc/userlist/userlist.txt
+admin_users = admin
+ignore_startup_parameters = extra_float_digits
+pool_mode = transaction
+min_pool_size = 20
+default_pool_size = 20
+reserve_pool_size = 5
+max_client_conn = 10000
+max_db_connections = 20
+[databases]
+`
+
+func generatePGBouncerIni() string {
+	ini := baseIni
+
+	databases := []string{"blah"}
+	for _, database := range databases {
+
+	}
+	return ini
+}
