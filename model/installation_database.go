@@ -35,6 +35,9 @@ const (
 	DatabaseEngineTypeMySQL = "mysql"
 	// DatabaseEngineTypePostgres is a PostgreSQL database.
 	DatabaseEngineTypePostgres = "postgres"
+	// DatabaseEngineTypePostgresProxy is a PostgreSQL database that is
+	// configured for proxied connections.
+	DatabaseEngineTypePostgresProxy = "postgres-proxy"
 )
 
 // Database is the interface for managing Mattermost databases.
@@ -67,6 +70,10 @@ type InstallationDatabaseStoreInterface interface {
 	LockMultitenantDatabases(ids []string, lockerID string) (bool, error)
 	UnlockMultitenantDatabases(ids []string, lockerID string, force bool) (bool, error)
 	GetSingleTenantDatabaseConfigForInstallation(installationID string) (*SingleTenantDatabaseConfig, error)
+}
+
+type ClusterUtilityDatabaseStoreInterface interface {
+	GetMultitenantDatabases(filter *MultitenantDatabaseFilter) ([]*MultitenantDatabase, error)
 }
 
 // MysqlOperatorDatabase is a database backed by the MySQL operator.

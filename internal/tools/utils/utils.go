@@ -132,7 +132,7 @@ func (r *ResourceUtil) GetDatabase(installationID, dbType string) model.Database
 	case model.InstallationDatabaseMultiTenantRDSPostgres:
 		return aws.NewRDSMultitenantDatabase(model.DatabaseEngineTypePostgres, r.instanceID, installationID, r.awsClient)
 	case model.InstallationDatabaseMultiTenantRDSPostgresPGBouncer:
-		return aws.NewRDSMultitenantPGBouncerDatabase(model.DatabaseEngineTypePostgres, r.instanceID, installationID, r.awsClient)
+		return aws.NewRDSMultitenantPGBouncerDatabase(model.DatabaseEngineTypePostgresProxy, r.instanceID, installationID, r.awsClient)
 	}
 
 	// Warning: we should never get here as it would mean that we didn't match
